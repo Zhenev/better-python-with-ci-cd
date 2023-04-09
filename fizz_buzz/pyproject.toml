@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fizz_buzz"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = ["Zhenev"]
 readme = "README.md"
