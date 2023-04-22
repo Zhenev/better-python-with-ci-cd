@@ -1,6 +1,6 @@
 ## Better [Python] Code With CI/CD
 
-This is a repository that accompanies my "Data Scientist Joining CI/CD party" blog series. I describe how I set up a continuous integration / continuous delivery (CI/CD) pipeline using GitHub.
+This is a repository that accompanies my "Data Scientist Joining CI/CD party" blog series. In part 1 of it, I describe how I set up a continuous integration / continuous delivery (CI/CD) pipeline using GitHub.
 
 Two people are the source of inspiration to this post:
 
