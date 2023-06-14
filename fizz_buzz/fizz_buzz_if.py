@@ -1,7 +1,7 @@
 import sys
 
 
-def return_fizz_buzz(num: int) -> str:
+def return_fizz_buzz(num: int) -> str | int:
     """This is aa simple solution to solve the famous Fizz Buzz problem.
 
     :param num: the number to check
@@ -14,7 +14,7 @@ def return_fizz_buzz(num: int) -> str:
         return "buzz"
     if num % 3 == 0:
         return "fizz"
-    return str(num)
+    return num
 
 
 def fetch_integer(num_str: str) -> int:
@@ -28,4 +28,8 @@ def fetch_integer(num_str: str) -> int:
 
 if __name__ == "__main__":
     number = fetch_integer(sys.argv[1])
-    print(f'{str(number)} is a "{return_fizz_buzz(number)}" number.')
+    output = return_fizz_buzz(number)
+    if type(output) == str:
+        print(f'{str(number)} is a "{output}" number.')
+    else:
+        print(f'{str(number)} is not a fizz/buzz number.')
