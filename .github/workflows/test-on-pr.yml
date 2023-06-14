@@ -42,6 +42,7 @@ jobs:
         if: env.PROJECT_CHANGED == 'true'
         with:
           labels: fizz_buzz
+          github_token: ${{ secrets.REPOSITORY_ACTION_GITHUB_TOKEN }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
