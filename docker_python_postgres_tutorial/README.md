@@ -16,9 +16,18 @@ Before getting started, ensure that you have Docker Engine and Docker Compose in
 - Visit the official Docker website and follow the installation instructions for your operating system.
 
 ### Usage
-1. Clone the project repository to your local machine:
+1. Clone the project repository to your local machine.
 2. Update the configuration files in the `/config` directory with the appropriate values (see `/config/README.md`).
-3. Run the application using the `docker-compose up` command.
+3. Check whether the ingestion script in the `/app` directory should be customized (depending on the data source file).
+4. Run the application using the `docker-compose up` command.
+5. Access the result, e.g. by using the `sqlalchemy` module:
+
+```python
+import pandas as pd
+from sqlalchemy import create_engine
+engine = create_engine(f'postgresql://{user}:{password}@:5431/{db}')
+pd.read_sql(f"""SELECT * FROM {table_name} LIMIT 10""", con=engine)
+```
 
 ### Support and Contributions
 
