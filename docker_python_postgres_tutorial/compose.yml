@@ -1,0 +1,17 @@
+version: '3.10'
+services:
+  database:
+    image: postgres:13
+    volumes:
+      - ./database:/var/lib/postgresql/data:rw
+      - ./config/postgres_db.env:/docker-entrypoint-initdb.d/postgres_db.env:ro
+    ports:
+      - '5431:5432'
+  app:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    volumes:
+      - ./config/python_connection.env:/app/python_connection.env
+    depends_on:
+      - database
