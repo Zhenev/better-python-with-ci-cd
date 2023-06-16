@@ -7,6 +7,7 @@ These files are essential for configuring the environment and parameters of the 
 
 - `python_connection.env`: This file contains the connection arguments and configuration parameters for the
 `ingest_data.py` script.
+- `postgres_db.env`: This file contains the configuration parameters for the Postgres database to be set up.
 
 ### Usage
 

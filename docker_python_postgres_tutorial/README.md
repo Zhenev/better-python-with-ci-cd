@@ -2,8 +2,7 @@
 
 Welcome to the Docker Python Postgres Tutorial project repository!
 
-The [tutorial](https://zhenev.github.io/2023-04-29-building-data-pipelines-with-docker/) provides a step-by-step guide \
-on setting up a data ingestion pipeline using Docker, Python, and Postgres.
+The [tutorial](https://zhenev.github.io/2023-04-29-building-data-pipelines-with-docker/) provides a step-by-step guide on setting up a data ingestion pipeline using Docker, Python, and Postgres.
 
 ### Project Structure
 
