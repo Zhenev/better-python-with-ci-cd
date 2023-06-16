@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "docker_python_postgress_tutorial"
+version = "0.0.1"
+description = ""
+authors = ["Zhenev"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10.5"
+flake8 = "^6.0.0"
+wget = "^3.2"
+pandas = "^2.0.2"
+sqlalchemy = "^2.0.15"
+psycopg2 = "^2.9.6"
+dotenv-config = "^0.1.4"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.4.0"]
+build-backend = "poetry.core.masonry.api"
+
+
