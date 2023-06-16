@@ -1,6 +1,6 @@
 ## Database Storage
 
-This folder is used to store the data for the Postgres database of the `docker_python_postgres_tutorial` project.
+This folder is used to store the data for the Postgres database of the Data Pipelines with Docker Tutorial project.
 Please follow the guidelines below for managing and accessing the data.
 
 ### Data Files

@@ -6,8 +6,18 @@ These files are essential for configuring the environment and parameters of the 
 ### File Descriptions
 
 - `python_connection.env`: This file contains the connection arguments and configuration parameters for the
-`ingest_data.py` script.
-- `postgres_db.env`: This file contains the configuration parameters for the Postgres database to be set up.
+`ingest_data.py` script:
+  - POSTGRES_USER=your_user
+  - POSTGRES_PASSWORD=your_password 
+  - POSTGRES_DB=your_db_name
+  - POSTGRES_HOST=your_db_hostname # the same as the database service name in the `compose.yml` file 
+  - POSTGRES_PORT=5432
+  - POSTGRES_TABLENAME=your_table_name 
+  - DATA_URL=https://your/url.csv
+- `postgres_db.env`: This file contains the configuration parameters for the Postgres database to be set up:
+  - POSTGRES_USER=your_user
+  - POSTGRES_PASSWORD=your_password 
+  - POSTGRES_DB=your_db_name
 
 ### Usage
 
