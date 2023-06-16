@@ -1,0 +1,26 @@
+## Configuration Files
+
+This folder should contain configuration files used in the Docker Python Postgres Tutorial project.
+These files are essential for configuring the environment and parameters of the application.
+
+### File Descriptions
+
+- `python_connection.env`: This file contains the connection arguments and configuration parameters for the
+`ingest_data.py` script.
+
+### Usage
+
+1. Update the `.env` files with the appropriate values for your environment and application setup.
+2. The `.env` files are mounted for corresponding services in the Docker `compose.yml` file to ensure that the
+configuration files are accessible within the container during runtime.
+
+### Important Note
+
+Please ensure that sensitive information, such as credentials or private keys, is not committed to version control.
+Use appropriate security measures, such as proper file permissions or encryption, to protect sensitive data.
+
+### Support and Contributions
+
+If you have any questions related to the project, please reach out by opening an issue in the project repository.
+Contributions, suggestions, and feedback are also welcome!
+
