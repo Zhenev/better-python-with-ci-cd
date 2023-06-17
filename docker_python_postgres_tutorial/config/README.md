@@ -14,16 +14,17 @@ These files are essential for configuring the environment and parameters of the 
   - POSTGRES_PORT=5432
   - POSTGRES_TABLENAME=your_table_name 
   - DATA_URL=https://your/url.csv
-- `postgres_db.env`: This file contains the configuration parameters for the Postgres database to be set up:
-  - POSTGRES_USER=your_user
-  - POSTGRES_PASSWORD=your_password 
-  - POSTGRES_DB=your_db_name
+- `postgres_user.txt`, `postgres_password.txt`, `postgres_db.txt`: Contain the configuration parameters for the Postgres
+database to be set up:
+  - `postgres_user.txt`: your_user
+  - `postgres_password.txt`: your_password 
+  - `postgres_db.txt`: your_db_name
 
 ### Usage
 
 1. Update the `.env` files with the appropriate values for your environment and application setup.
-2. The `.env` files are mounted for corresponding services in the Docker `compose.yml` file to ensure that the
-configuration files are accessible within the container during runtime.
+2. The `.env` and `.txt` files are mounted for corresponding services in the Docker `compose.yml` file to ensure that 
+the necessary sensitive configuration parameters are accessible within the container during runtime.
 
 ### Important Note
 
