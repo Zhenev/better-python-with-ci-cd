@@ -5,21 +5,35 @@ import wget
 from urllib.error import HTTPError
 
 import sys
-from time import time
+from time import time, sleep
 
 import pandas as pd
 from sqlalchemy import create_engine
+from sqlalchemy.exc import OperationalError
 
 
 load_dotenv('/app/python_connection.env')
 
 
-def __fetch_downloaded_file_name(url_string):
-    file_name = url_string.split('/')[-1]
-    if url_string.endswith('.csv.gz') or url_string.endswith('.csv'):
+def __fetch_downloaded_file_name(file_url: str) -> str:
+    file_name = file_url.split('/')[-1]
+    if file_url.endswith('.csv.gz') or file_url.endswith('.csv'):
         return file_name
     else:
         return ''
+
+
+def check_database_health(db_url: str) -> bool:
+    try:
+        # Create an engine using the database URL
+        engine = create_engine(db_url)
+
+        # Try to connect to the database
+        with engine.connect():
+            return True  # Database connection successful
+
+    except OperationalError:
+        return False  # Database connection failed
 
 
 def main():
@@ -35,9 +49,6 @@ def main():
     table_name = os.getenv("POSTGRES_TABLENAME")
     url = os.getenv("DATA_URL")
 
-    print(user)
-    print(url)
-
     # the backup files can be gzipped, keep the correct extension for pandas to be able to open the file
     csv_name = __fetch_downloaded_file_name(url)
     if csv_name:
@@ -50,7 +61,14 @@ def main():
     else:
         sys.exit(f'Unknown file format at {url}')
 
-    engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
+    database_url = f'postgresql://{user}:{password}@{host}:{port}/{db}'
+
+    # Wait for the database to become available
+    while not check_database_health(database_url):
+        print("Waiting for the database to become available...")
+        sleep(10)  # Wait for 10 second before retrying
+
+    engine = create_engine(database_url)
 
     pd.read_csv(csv_name).head(n=0).to_sql(name=table_name, con=engine, index=False, if_exists='replace')
     df_iter = pd.read_csv(csv_name, iterator=True, chunksize=50000)
