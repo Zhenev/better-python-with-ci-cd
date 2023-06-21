@@ -4,7 +4,6 @@ version = "0.0.2"
 description = ""
 authors = ["Zhenev"]
 readme = "README.md"
-packages = [{include = "docker_python_postgress_tutorial"}]
 
 [tool.poetry.dependencies]
 python = "^3.10.5"
