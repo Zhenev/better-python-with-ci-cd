@@ -5,12 +5,12 @@ from app.ingest_data import fetch_downloaded_file_name
 class TestIngestData(unittest.TestCase):
 
     def test_fetch_downloaded_file_name(self):
-        test = [
+        tests = [
             {'input_url': 'abc.csv', 'output': 'abc.csv'},
             {'input_url': 'abc.csv.gz', 'output': 'abc.csv.gz'},
             {'input_url': 'abc/', 'output': ''}
         ]
-        for test in test:
+        for test in tests:
             assert fetch_downloaded_file_name(test['input_url']) == test['output']
 
 
