@@ -108,4 +108,6 @@ jobs:
       - name: Test docker_python_postgres_tutorial with pytest
         if: env.PROJECT_CHANGED == 'true'
         working-directory: ./docker_python_postgres_tutorial
+        env:
+          PYTHONPATH: ./app
         run: poetry run pytest ./tests
