@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docker_python_postgress_tutorial"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = ["Zhenev"]
 readme = "README.md"
