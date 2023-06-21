@@ -73,10 +73,6 @@ jobs:
       matrix:
         python-version: [3.10.5]
     steps:
-      - name: Set up node.js 12
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12'
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Get changed files
@@ -92,12 +88,6 @@ jobs:
       - name: Exit if version unchanged
         if: env.PROJECT_CHANGED == 'true' && env.PYPROJECT_TOML_CHANGED == 'false'
         run: exit 1
-      - name: Actions Ecosystem Add Labels
-        uses: actions-ecosystem/action-add-labels@v1.1.0
-        if: env.PROJECT_CHANGED == 'true'
-        with:
-          labels: docker_python_postgres_tutorial
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
