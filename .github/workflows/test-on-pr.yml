@@ -107,7 +107,6 @@ jobs:
           poetry run flake8 . --count --max-complexity=30 --max-line-length=120 --statistics
       - name: Test docker_python_postgres_tutorial with pytest
         if: env.PROJECT_CHANGED == 'true'
-        working-directory: ./docker_python_postgres_tutorial
         env:
           PYTHONPATH: ./app
         run: poetry run pytest ./tests
