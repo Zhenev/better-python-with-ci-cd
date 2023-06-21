@@ -50,7 +50,7 @@ def main():
     url = os.getenv("DATA_URL")
 
     # the backup files can be gzipped, keep the correct extension for pandas to be able to open the file
-    csv_name = __fetch_downloaded_file_name(url)
+    csv_name = fetch_downloaded_file_name(url)
     if csv_name:
         try:
             wget.download(url)
