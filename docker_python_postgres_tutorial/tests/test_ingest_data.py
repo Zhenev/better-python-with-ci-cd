@@ -1,5 +1,5 @@
 import unittest
-from app.ingest_data import fetch_downloaded_file_name
+from docker_python_postgres_tutorial.app.ingest_data import fetch_downloaded_file_name
 
 
 class TestIngestData(unittest.TestCase):
