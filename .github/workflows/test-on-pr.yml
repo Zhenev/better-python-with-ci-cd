@@ -111,5 +111,5 @@ jobs:
         if: env.PROJECT_CHANGED == 'true'
         working-directory: ./docker_python_postgres_tutorial
         env:
-          PYTHONPATH: ./app
+          PYTHONPATH: ${{ github.workspace }}/docker_python_postgres_tutorial/app
         run: poetry run pytest ./tests
