@@ -98,7 +98,9 @@ jobs:
       - name: Build docker_python_postgres_tutorial project
         if: env.PROJECT_CHANGED == 'true'
         working-directory: ./docker_python_postgres_tutorial
-        run: poetry install
+        run: |
+          poetry config virtualenvs.create false
+          poetry install --extras app
       - name: Run lint on docker_python_postgres_tutorial
         if: env.PROJECT_CHANGED == 'true'
         working-directory: ./docker_python_postgres_tutorial
