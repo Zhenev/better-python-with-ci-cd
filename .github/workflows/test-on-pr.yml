@@ -38,12 +38,6 @@ jobs:
       - name: Exit if version unchanged
         if: env.PROJECT_CHANGED == 'true' && env.PYPROJECT_TOML_CHANGED == 'false'
         run: exit 1
-      - name: Actions Ecosystem Add Labels
-        uses: actions-ecosystem/action-add-labels@v1.1.0
-        if: env.PROJECT_CHANGED == 'true'
-        with:
-          labels: fizz_buzz
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
@@ -107,5 +101,5 @@ jobs:
           poetry run flake8 . --count --max-complexity=30 --max-line-length=120 --statistics
       - name: Test docker_python_postgres_tutorial with pytest
         if: env.PROJECT_CHANGED == 'true'
-        working-directory: ./docker_python_postgres_tutorial/test
+        working-directory: ./docker_python_postgres_tutorial/tests
         run: poetry run pytest .
