@@ -91,7 +91,6 @@ jobs:
         run: pip install poetry
       - name: Build docker_python_postgres_tutorial project
         if: env.PROJECT_CHANGED == 'true'
-        working-directory: ./app
         run: poetry install
       - name: Run lint on docker_python_postgres_tutorial
         if: env.PROJECT_CHANGED == 'true'
