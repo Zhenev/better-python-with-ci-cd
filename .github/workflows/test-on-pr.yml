@@ -38,12 +38,6 @@ jobs:
       - name: Exit if version unchanged
         if: env.PROJECT_CHANGED == 'true' && env.PYPROJECT_TOML_CHANGED == 'false'
         run: exit 1
-      - name: Actions Ecosystem Add Labels
-        uses: actions-ecosystem/action-add-labels@v1.1.0
-        if: env.PROJECT_CHANGED == 'true'
-        with:
-          labels: fizz_buzz
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
@@ -97,19 +91,15 @@ jobs:
         run: pip install poetry
       - name: Build docker_python_postgres_tutorial project
         if: env.PROJECT_CHANGED == 'true'
-        working-directory: ./docker_python_postgres_tutorial
-        run: |
-          poetry config virtualenvs.create false
-          poetry install --extras app
+        working-directory: docker_python_postgres_tutorial
+        run: poetry install
       - name: Run lint on docker_python_postgres_tutorial
         if: env.PROJECT_CHANGED == 'true'
-        working-directory: ./docker_python_postgres_tutorial
+        working-directory: docker_python_postgres_tutorial
         run: |
           poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           poetry run flake8 . --count --max-complexity=30 --max-line-length=120 --statistics
       - name: Test docker_python_postgres_tutorial with pytest
         if: env.PROJECT_CHANGED == 'true'
-        working-directory: ./docker_python_postgres_tutorial
-        env:
-          PYTHONPATH: ${{ github.workspace }}/docker_python_postgres_tutorial/app
-        run: poetry run pytest ./tests
+        working-directory: docker_python_postgres_tutorial/tests
+        run: poetry run pytest .

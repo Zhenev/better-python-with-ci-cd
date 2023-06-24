@@ -15,7 +15,7 @@ from sqlalchemy.exc import OperationalError
 load_dotenv('/app/python_connection.env')
 
 
-def __fetch_downloaded_file_name(file_url: str) -> str:
+def fetch_downloaded_file_name(file_url: str) -> str:
     file_name = file_url.split('/')[-1]
     if file_url.endswith('.csv.gz') or file_url.endswith('.csv'):
         return file_name
@@ -50,7 +50,7 @@ def main():
     url = os.getenv("DATA_URL")
 
     # the backup files can be gzipped, keep the correct extension for pandas to be able to open the file
-    csv_name = __fetch_downloaded_file_name(url)
+    csv_name = fetch_downloaded_file_name(url)
     if csv_name:
         try:
             wget.download(url)
