@@ -5,9 +5,8 @@ description = ""
 authors = ["Zhenev"]
 readme = "README.md"
 packages = [
-  { include = "docker_python_postgres_tutorial" },
-  { include = "docker_python_postgres_tutorial.app", from = "."  },
-  { include = "docker_python_postgres_tutorial.tests", from = "."  }
+  { include = "app" },
+  { include = "tests" }
 ]
 
 [tool.poetry.dependencies]
