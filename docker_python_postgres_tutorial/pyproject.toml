@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "docker_python_postgress_tutorial"
+name = "docker_python_postgres_tutorial"
 version = "0.0.2"
 description = ""
 authors = ["Zhenev"]
